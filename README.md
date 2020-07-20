@@ -11,7 +11,21 @@ Follow these steps to install Laravel Pagebuilder in your project:
 - `composer require hansschouten/laravel-pagebuilder`
 - `php artisan vendor:publish --provider="HansSchouten\LaravelPageBuilder\ServiceProvider" --tag=config`
 - Update the configuration in `config/pagebuilder.php`
+
+Antes de realizar la migración, tenemos que crear las tablas que va a usar el Constructor. Podemos verlas aquí:
+
+https://github.com/joseRamonLeon/Laravel-Pagebuilder/tree/master/migrations:
+
+En mi caso concreto, un VPS con Ubuntu 14.04 no me deja subir las migraciones, por lo que las voy a crear a mano:
+
+php artisan make:migration create_settings_table
+php artisan make:migration create_page_translations_table
+php artisan make:migration create_uploads_table
+php artisan make:migration create_pages_table
+
+
 - `php artisan migrate`
+
 
 Next, you need to create a theme:
 - `php artisan pagebuilder:create-theme [name here]`
